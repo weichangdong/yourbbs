@@ -7,7 +7,7 @@ if(isset($cid)){
     if(isset($t_obj)){
         $post_in_cid = $t_obj['cid'];
     }else{
-        $post_in_cid = 3;
+        $post_in_cid = 2;
     }
 }
 
