@@ -1,6 +1,6 @@
 #[YouBBS for VPS v2.1](http://v2.youbbs.eoen.org/)
 
-YouBBS 是一款轻量级的论坛程序，基于标准的php+mysql环境;为了让URL更优美，服务器必须支持**rewrite**；
+YouBBS 是一款轻量级的论坛程序，基于标准的php+mysql环境;为了让URL更优美，服务器必须支持rewrite；
 
 **P.S：youBBS是开源项目，可自由修改，但要保留Powered by YouBBS链接信息！**
 
