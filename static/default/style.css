@@ -317,8 +317,8 @@ img.avatar {
 
 .search-input {
     width: 180px;
-    -webkit-transition: width 0.5s ease-in-out;
-    transition: width 0.5s ease-in-out;
+    -webkit-transition: width 0.9s ease-in-out;
+    transition: width 0.9s ease-in-out;
     border: 1px solid #CACACA;
     border-radius: 3px;
     background-color: rgba(0, 0, 0, 0);
