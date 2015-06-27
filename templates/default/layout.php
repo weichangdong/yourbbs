@@ -108,8 +108,8 @@ echo '
     <div class="footer">
 	<div class="sep10"></div>
 	<div class="sep10"></div>
-	<i class="fa fa-asterisk fa-spin"></i> Proudly Powered by <a href="http://youbbs.sinaapp.com/" target="_blank"><b>YouBBS</b></a><div class="sep5"></div>
-	<i class="fa fa-heart"></i> Lovingly made by <a href="http://www.eoen.org/" target="_blank"><b>EOEN</b></a><div class="footericp">';
+	<i class="fa fa-heart"></i> Lovingly made by <a href="http://www.eoen.org/" target="_blank">EOEN</a><div class="sep5"></div>
+	<i class="fa fa-asterisk fa-spin"></i> Proudly Powered by <a href="http://youbbs.sinaapp.com/" target="_blank">YouBBS</a><div class="footericp">';
 if($options['icp']){
     echo '<div class="sep5"></div><i class="fa fa-university"></i> <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">',$options['icp'],'</a>';
 }
