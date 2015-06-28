@@ -24,23 +24,7 @@ if($url_path == 'login'){
 }
 echo '</p>
 </form>
-</div></div>';
-echo '<div class="main-sider">
-		<div class="sider-box">
-			<div class="sider-box-title"><i class="fa fa-info-circle"></i> 忘记密码</div>
-			<div class="sider-box-content">
-			<span class="infoweb">如果您注册时没有绑定邮箱请提供您的账号信息发送邮件给管理员取回密码。我们可能会要求您提供您最近的发帖记录和登录区域信息！</span><br/>
-			<div class="c"></div>
-			</div>
-		</div>
-		<div class="sider-box">
-			<div class="sider-box-title"><i class="fa fa-info-circle"></i> 忘记安全码</div>
-			<div class="sider-box-content">
-			<span class="infoweb">如果您丢失了安全码造成不能登录，请提供您的账号信息发送邮件给管理员取消安全码！</span><br/>
-			<div class="c"></div>
-			</div>
-		</div>
-	  </div>';
+</div>';
 echo'
 <script type="text/javascript" charset="utf-8">
 $(\'.name\').contip({
