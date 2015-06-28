@@ -46,9 +46,9 @@ if (@get_magic_quotes_gpc()) {
 
 // 获取当前用户
 $cur_user = null;
-$cur_uid = $_COOKIE['cur_uid'];
-$cur_uname = $_COOKIE['cur_uname'];
-$cur_ucode = $_COOKIE['cur_ucode'];
+$cur_uid = isset($_COOKIE['cur_uid']) ? $_COOKIE['cur_uid'] : '';
+$cur_uname = isset($_COOKIE['cur_uname']) ? $_COOKIE['cur_uname'] : '';
+$cur_ucode = isset($_COOKIE['cur_ucode']) ? $_COOKIE['cur_ucode'] : '';
 
 if($cur_uname && $cur_uid && $cur_ucode){
     $u_key = 'u_'.$cur_uid;
@@ -167,8 +167,14 @@ function showtime($db_time){
     }
 }
 
+// 显示时间格式化
+function showtime2($db_time){
+    return date("Y-m-d H:i:s", $db_time);
+}
+
+
 // 格式化帖子、回复内容
-function set_content($text, $spider='0'){
+function set_content_rich($text, $spider='0'){
     global $options;
     // images
     $img_re = '/(http[s]?:\/\/?('.$options['safe_imgdomain'].').+\.(jpg|jpe|jpeg|gif|png))\w*/';
@@ -240,9 +246,38 @@ function set_content($text, $spider='0'){
         $text = substr($text, 1);
     }
 
+    $text = preg_replace("/\s{4,}/", '</p><p>', $text);
     $text = str_replace("\r\n", '<br/>', $text);
+    $text = str_replace("<p></p>", '', $text);
 
     return $text;
+}
+
+// 附加代码高亮
+function set_content($text, $spider='0'){
+    if(strpos($text, '```') !== false){
+        preg_match_all('/```([\s\S]*?)```/', $text, $mat);
+        $code_arr = array();
+        $code_new_arr = array();
+        for($i=0; $i<count($mat[0]); $i++){
+            //youxascodetag 是你自己定义的一个代码占位符，最好不让别人知道
+            $code_tag_place = '[youxascodetag_'.$i.']';
+            $code_arr[$i] = $code_tag_place;
+            $code_v = trim($mat[1][$i]);
+            $code_v = str_replace("<", '<', $code_v);
+            $code_v = str_replace(">", '>', $code_v);            
+            $code_new_arr[$i] = '<pre><code>'.$code_v.'</code></pre>';
+            $text = str_replace($mat[0][$i], $code_tag_place, $text);
+        }
+        $text = set_content_rich($text, $spider);
+        foreach($code_arr as $k=>$v){
+            $text = str_replace($v, $code_new_arr[$k], $text);
+        }
+        $text = str_replace("<p><pre>", '<pre>', $text);
+        $text = str_replace("</pre></p>", '</pre>', $text);
+        return $text;
+    }
+    return set_content_rich($text, $spider);
 }
 
 // 匹配文本里呼叫某人，为了保险，使用时常在其前后加空格，如 @admin 吧
@@ -314,6 +349,7 @@ function curl_file_get_contents($url){
     curl_close($ch);
     return $data;
 }
+
 
 // 密码加盐，可以自己修改这个函数
 function encode_password($pw, $salt){

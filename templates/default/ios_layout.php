@@ -32,7 +32,12 @@ if($options['head_meta']){
 if(isset($canonical)){
     echo '<link rel="canonical" href="http://',$_SERVER['HTTP_HOST'],$canonical,'" />';
 }
-
+if(isset($t_obj)){
+echo '
+<link rel="stylesheet" href="/static/highlight/styles/github-gist.css">
+<script src="/static/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>';
+}
 echo '
 </head>
 <body oncontextmenu=self.event.returnValue=false>
