@@ -14,8 +14,7 @@ if(isset($meta_kws) && $meta_kws){
 if(isset($meta_des) && $meta_des){
     echo '<meta name="description" content="',$meta_des,'" />';
 }
-echo '<meta property="qc:admins" content="1532270373175223657566727" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+echo '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link href="/static/default/style.css" rel="stylesheet" type="text/css" />
 <link href="/static/default/awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -92,7 +91,6 @@ echo '       </div>
 
 <div class="main-wrap">
     <div class="main">
-		<div class="youbbs">Youbbs是一款开源免费基于PHP+MySQL轻型论坛程序，界面优美，性能高效，代码简洁、安全，适合于对传统论坛功能感觉臃肿的站长。 源代码 <a href="https://github.com/eoen/YouBBS-EOEN" target="_blank"><i class="fa fa-github"></i> 在此</a></div>
         <div class="main-content">';
         
 include($pagefile);
