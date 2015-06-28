@@ -5,6 +5,7 @@ YouBBS 是一款轻量级的论坛程序，基于标准的php+mysql环境;为了
 **P.S：youBBS是开源项目，可自由修改，但要保留Powered by YouBBS链接信息！**
 
 YouBBS for VPS v2.1的一些改进（对比v1.04)：
+> * 代码高亮
 > * 更新404页面；
 > * 更新网页字体；
 > * 登陆页svg动画；
