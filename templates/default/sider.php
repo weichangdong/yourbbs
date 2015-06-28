@@ -72,16 +72,6 @@ echo'</div>
 </div>';
 }
 
-if($options['ad_sider_top']){
-echo '
-<div class="sider-box">
-    <div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 广而告之</div>
-    <div class="sider-box-content">',$options['ad_sider_top'],'
-    <div class="c"></div>
-    </div>
-</div>';
-}
-
 if($url_path == 'sigin' || $url_path == 'login'){
     echo'<div class="sider-box">
 			<div class="sider-box-title"><i class="fa fa-life-ring"></i> 站务信息</div>
@@ -109,6 +99,28 @@ if($url_path == 'sigin' || $url_path == 'login'){
 			</div>
 		</div>';
 }
+
+
+if($url_path == 'forgot'){
+	echo'<div class="sider-box">
+			<div class="sider-box-title"><i class="fa fa-info-circle"></i> 忘记密码</div>
+			<div class="sider-box-content">
+				<span class="infoweb">如果您忘记了密码或安全码造成不能登录，请提供您的账号信息发送邮件给管理员重置密码或取消安全码！</span><br/>
+				<div class="c"></div>
+			</div>
+		</div>';
+}
+
+if($options['ad_sider_top']){
+echo '
+<div class="sider-box">
+    <div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 广而告之</div>
+    <div class="sider-box-content">',$options['ad_sider_top'],'
+    <div class="c"></div>
+    </div>
+</div>';
+}
+
 
 if($options['close']){
 echo '
