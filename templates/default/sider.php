@@ -111,35 +111,6 @@ if($url_path == 'forgot'){
 		</div>';
 }
 
-if($options['ad_sider_top']){
-echo '
-<div class="sider-box">
-    <div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 广而告之</div>
-    <div class="sider-box-content">',$options['ad_sider_top'],'
-    <div class="c"></div>
-    </div>
-</div>';
-}
-
-
-if($options['close']){
-echo '
-<div class="sider-box">
-    <div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 网站暂时关闭公告</div>
-    <div class="sider-box-content">
-    <h2>';
-if($options['close_note']){
-    echo $options['close_note'];
-}else{
-    echo '数据调整中。。。';
-}
-echo '</h2>
-    <div class="c"></div>
-    </div>
-</div>';
-
-}
-
 
 if(isset($newpost_page)){
 echo '
@@ -216,6 +187,37 @@ echo '    </div>
 </div>';
 }
 
+
+if($options['ad_sider_top']){
+echo '
+<div class="sider-box">
+    <div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 广而告之</div>
+    <div class="sider-box-content">',$options['ad_sider_top'],'
+    <div class="c"></div>
+    </div>
+</div>';
+}
+
+
+if($options['close']){
+echo '
+<div class="sider-box">
+    <div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 网站暂时关闭公告</div>
+    <div class="sider-box-content">
+    <h2>';
+if($options['close_note']){
+    echo $options['close_note'];
+}else{
+    echo '数据调整中。。。';
+}
+echo '</h2>
+    <div class="c"></div>
+    </div>
+</div>';
+
+}
+
+
 if(isset($links) && $links){
 echo '
 <div class="sider-box">
@@ -230,6 +232,7 @@ echo '    </div>
     </div>
 </div>';
 }
+
 
 if(isset($site_infos)){
 echo '
