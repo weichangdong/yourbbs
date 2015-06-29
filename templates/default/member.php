@@ -25,8 +25,7 @@ if($openid_user['name']){
     echo '<p>腾讯微博： <a href="http://t.qq.com/',$openid_user['name'],'" target="_blank" rel="nofollow">http://t.qq.com/',$openid_user['name'],'</a></p>';
 }
 
-echo '<p>关于： <br/> ',htmlspecialchars($m_obj['about']),'</p>
-</div>
+echo '</div>
 <div class="c"></div>
 </div>';
 
