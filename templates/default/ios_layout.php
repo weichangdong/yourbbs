@@ -52,13 +52,8 @@ if($cur_user){
 		  <a id="translateLink"><i class="fa fa-language"></i>繁體</a>
 		  <a href="/logout"><i class="fa fa-sign-out"></i>退出</a>';
 }else{
-    if($options['wb_key'] && $options['wb_secret']){
-        echo '<a href="/wblogin" rel="nofollow"><i class="fa fa-weibo"></i>微博登陆</a>';
-    }
-    if($options['qq_appid'] && $options['qq_appkey']){
-        echo '<a href="/qqlogin" rel="nofollow"><i class="fa fa-qq"></i>QQ登录</a>';
-    }
-    echo '<a id="translateLink" rel="nofollow"><i class="fa fa-language"></i>繁體</a><a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>';
+    echo '<a id="translateLink" rel="nofollow"><i class="fa fa-language"></i>繁體</a>
+	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>';
     if(!($options['wb_key'] && $options['wb_secret']) && !($options['qq_appid'] && $options['qq_appkey'])){
         if(!$options['close_register']){
             echo '<a href="/sigin" rel="nofollow"><i class="fa fa-user-plus"></i>注册</a>';

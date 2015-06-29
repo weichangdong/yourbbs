@@ -47,8 +47,19 @@ if($url_path == 'login'){
 echo '</p>
 </form>
 </div>';
-echo'
-<script>
+if(($options['wb_key'] && $options['wb_secret']) && ($options['qq_appid'] && $options['qq_appkey'])){
+echo '
+    <div class="main-box main-box-node">';
+	if($options['wb_key'] && $options['wb_secret']){
+        echo '<a href="/wblogin" class="weibo" rel="nofollow"><i class="fa fa-weibo"></i>微博登陆</a>';
+	}
+	if($options['qq_appid'] && $options['qq_appkey']){
+        echo '<a href="/qqlogin" class="qq" rel="nofollow"><i class="fa fa-qq"></i>QQ登录</a>';
+    }
+    echo'<div class="c"></div>
+    </div>';
+}
+echo'<script>
 $(document).ready(function(){
   $("#close").click(function(){
     $("#closes").remove();
