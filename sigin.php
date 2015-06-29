@@ -5,6 +5,7 @@ define('CURRENT_DIR', pathinfo(__FILE__, PATHINFO_DIRNAME));
 include(CURRENT_DIR . '/config.php');
 include(CURRENT_DIR . '/common.php');
 
+/*
 // 屏蔽下面几行可以通过 用户名和密码 注册
 if(($options['qq_appid'] && $options['qq_appkey']) || ($options['wb_key'] && $options['wb_secret'])){
     header("content-Type: text/html; charset=UTF-8");
@@ -18,7 +19,7 @@ if(($options['qq_appid'] && $options['qq_appkey']) || ($options['wb_key'] && $op
     echo '&nbsp;<a href="/">返回首页</a>';
     exit;
 }
-
+*/
 
 if($cur_user){
     header('location: /');
