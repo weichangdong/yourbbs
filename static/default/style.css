@@ -560,6 +560,10 @@ span.right {
     WORD-WRAP: break-word;
 }
 
+.topic-content p a {
+	color: #4078c0;
+}
+
 .topic-content img {
     display: block;
     margin-top: 10px;
