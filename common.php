@@ -240,7 +240,7 @@ function set_content_rich($text, $spider='0'){
         $text = ' ' . $text;
         $text = preg_replace(
             '`([^"=\'>])((http|https|ftp)://[^\s<]+[^\s<\.)])`i',
-            '$1<a href="$2" target="_blank" class="linkk" rel="nofollow"><i class="fa fa-link"></i> | 网页链接</a>',
+            '$1<a href="$2" target="_blank" rel="nofollow">$2</a>',
             $text
         );
         $text = substr($text, 1);
