@@ -76,10 +76,7 @@ if($cur_user){
 		  <a href="/logout"><i class="fa fa-sign-out"></i>退出</a>';
 }else{
     echo '<a id="translateLink" rel="nofollow"><i class="fa fa-language"></i>繁體</a>
-		  <a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>';
-    if(!$options['close_register']){
-            echo '<a href="/sigin" rel="nofollow"><i class="fa fa-user-plus"></i>注册</a>';
-    }
+	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>';
 }
 echo '       </div>
         <div class="c"></div>
