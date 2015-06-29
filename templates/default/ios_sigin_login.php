@@ -47,7 +47,6 @@ if($url_path == 'login'){
 echo '</p>
 </form>
 </div>';
-if(($options['wb_key'] && $options['wb_secret']) && ($options['qq_appid'] && $options['qq_appkey'])){
 echo '
     <div class="main-box main-box-node">';
 	if($options['wb_key'] && $options['wb_secret']){
@@ -58,7 +57,6 @@ echo '
     }
     echo'<div class="c"></div>
     </div>';
-}
 echo'<script>
 $(document).ready(function(){
   $("#close").click(function(){
