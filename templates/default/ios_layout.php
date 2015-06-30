@@ -173,7 +173,7 @@ echo '       </div>
     <div class="footer">
     <div class="sep5"></div><div class="sep5"></div>
 	<div style="float: left;font-size: 12px;"><i class="fa fa-asterisk fa-spin"></i> Proudly Powered by <a href="http://youbbs.sinaapp.com/" target="_blank">YouBBS</a></div><div class="sep5"></div>
-    <div style="float: right;margin-top: -6px;font-size: 12px;"><i class="fa fa-heart"></i> Lovingly made by <a href="https://www.eoen.org/" target="_blank"><b>EOEN</b></a></div>
+    <div style="float: right;margin-top: -6px;font-size: 12px;"><i class="fa fa-heart"></i> Lovingly made by <a href="https://www.eoen.org/" target="_blank">EOEN</a></div>
 	<div class="sep5"></div><div class="c"></div>    </div>
     <!-- footer end -->
 </div>';
