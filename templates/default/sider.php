@@ -139,6 +139,8 @@ echo '
 		<p>请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。</p>
 		<h1><i class="fa fa-hand-o-right"></i> 主题正文</h1>
 		<p>可以在正文中为你要发布的主题添加更多细节，正文为纯文本格式不支持HTML等文本标记语法。</p>
+		<h1><i class="fa fa-hand-o-right"></i> 贴源代码</h1>
+		<p>把代码放在三个“反单引号”之间，如 ``` 你的代码 ```</p>
 		<h1><i class="fa fa-hand-o-right"></i> 字数限制</h1>
 		<p>主题标题<',$options['article_title_max_len'],'字，主题内容<',$options['article_content_max_len'],'字。</p>
 	</div>
