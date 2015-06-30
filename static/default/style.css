@@ -968,15 +968,15 @@ a.leftnotic {
 }
 
 .sider-box-content .btn a {
-    display: block;
-    padding: 5px 9px 5px 9px;
+    display: inline-block;
+    padding: 5px 10px;
     border: 1px solid #BCBCBC;
-    float: left;
-    margin: 0 4px 6px 0;
+    margin: 0 5px 8px 0;
     color: #444;
     background-color: #FFFFFF;
     white-space: nowrap;
     border-radius: 3px;
+    font-size: 13px;
 }
 
 .sider-box-content .btn a:hover {
