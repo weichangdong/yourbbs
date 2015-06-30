@@ -74,6 +74,17 @@ echo'</div>
 
 
 if($url_path == 'sigin' || $url_path == 'login'){
+echo '
+<div class="sider-box">
+    <div class="sider-box-title"><i class="fa fa-diamond"></i> 关于本站</div>
+    <div class="sider-box-content">',$options['site_inf'],'
+    <div class="c"></div>
+    </div>
+</div>';
+}
+
+
+if($url_path == 'sigin' || $url_path == 'login'){
 	if(($options['register_review']) || ($options['authorized'])){
 		echo'<div class="sider-box">
 				<div class="sider-box-title"><i class="fa fa-life-ring"></i> 站务信息</div>

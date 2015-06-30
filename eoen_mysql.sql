@@ -145,6 +145,7 @@ CREATE TABLE `yunbbs_settings` (
 INSERT INTO `yunbbs_settings` (`title`, `value`) VALUES 
 ('name', 'eoen'), 
 ('site_des', 'Proudly Powered by YouBBS'), 
+('site_inf', ''), 
 ('site_create', '0'),
 ('icp', ''),
 ('admin_email', ''),

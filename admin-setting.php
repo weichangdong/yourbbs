@@ -16,7 +16,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($action =='base'){
         // 修改设置一些默认参数
         $_POST['name'] = filter_chr($_POST['name']);  
-        $_POST['site_des'] = filter_chr($_POST['site_des']);      
+        $_POST['site_des'] = filter_chr($_POST['site_des']);
+		$_POST['site_inf'] = filter_chr($_POST['site_inf']);  		
         $_POST['icp'] = filter_chr($_POST['icp']);
         
         $_POST['home_shownum'] = intval($_POST['home_shownum']);

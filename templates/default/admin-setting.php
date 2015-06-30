@@ -26,16 +26,20 @@ echo '
         <td width="auto" align="left"><input type="text" class="sl w100" name="name" value="',htmlspecialchars($options['name']),'" /> <a href="http://youbbs.sinaapp.com/t-425" title="查看帮助" target="_blank">?</a></td>
     </tr>
     <tr>
-        <td width="120" align="right">网站描述</td>
-        <td width="auto" align="left"><textarea class="ml w450 h60" name="site_des">',str_replace('\\', '', $options['site_des']),'</textarea> 给搜索引擎看的，150字以内</td>
+        <td width="120" align="right">管理员邮箱</td>
+        <td width="auto" align="left"><input type="text" class="sl w200" name="admin_email" value="',$options['admin_email'],'" /> 用来接收密码重设请求，请正确填写</td>
     </tr>
     <tr>
         <td width="120" align="right">备案号</td>
         <td width="auto" align="left"><input type="text" class="sl w200" name="icp" value="',$options['icp'],'" /> 若有就填，如 京ICP证0603xx号</td>
     </tr>
     <tr>
-        <td width="120" align="right">管理员邮箱</td>
-        <td width="auto" align="left"><input type="text" class="sl w200" name="admin_email" value="',$options['admin_email'],'" /> 用来接收密码重设请求，请正确填写</td>
+        <td width="120" align="right">网站描述</td>
+        <td width="auto" align="left"><textarea class="ml w450 h60" name="site_des">',str_replace('\\', '', $options['site_des']),'</textarea> 给搜索引擎看的，150字以内</td>
+    </tr>
+	    <tr>
+        <td width="120" align="right">关于本站</td>
+        <td width="auto" align="left"><textarea class="ml w450 h60" name="site_inf">',str_replace('\\', '', $options['site_inf']),'</textarea> 登录页网站介绍信息</td>
     </tr>
     <tr>
         <td width="120" align="right"></td>
