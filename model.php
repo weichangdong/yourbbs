@@ -107,11 +107,11 @@ function get_site_infos() {
         $table_status = $DBS->fetch_one_array("SHOW TABLE STATUS LIKE 'yunbbs_users'");
         $site_infos['注册会员'] = $table_status['Auto_increment'] -1;
         $table_status = $DBS->fetch_one_array("SHOW TABLE STATUS LIKE 'yunbbs_categories'");
-        $site_infos['节点'] = $table_status['Auto_increment'] -1;
+        $site_infos['社区节点'] = $table_status['Auto_increment'] -1;
         $table_status = $DBS->fetch_one_array("SHOW TABLE STATUS LIKE 'yunbbs_articles'");
-        $site_infos['主题'] = $table_status['Auto_increment'] -1;
+        $site_infos['发布主题'] = $table_status['Auto_increment'] -1;
         $table_status = $DBS->fetch_one_array("SHOW TABLE STATUS LIKE 'yunbbs_comments'");
-        $site_infos['回复'] = $table_status['Auto_increment'] -1;
+        $site_infos['主题回复'] = $table_status['Auto_increment'] -1;
         
         $cache->set('site_infos', $site_infos);
     }
