@@ -459,9 +459,14 @@ p .linkk {
 }
 
 .topic-content img {
-    display: block;
     margin-top: 10px;
     max-width: 100%;
+}
+
+.emoji {
+	width: 28px;
+	height: 28px;
+	vertical-align: middle;
 }
 
 .topic-content embed {

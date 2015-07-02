@@ -163,6 +163,21 @@ $(function(){
 	backtop();
 });
 </script>
+<script src="/static/js/emojify.js"></script>
+<script>
+emojify.setConfig({
+    emojify_tag_type : \'div\',
+    only_crawl_id    : null,
+    img_dir          : \'http://www.emoji-cheat-sheet.com/graphics/emojis\',
+    ignored_tags     : { 
+        \'SCRIPT\'  : 1,
+        \'TEXTAREA\': 1,
+        \'PRE\'     : 1,
+        \'CODE\'    : 1
+    }
+});
+emojify.run();
+</script>
 <script src="/static/js/Language.js" type="text/javascript"></script>
 <script type="text/javascript">
 translateInitilization();

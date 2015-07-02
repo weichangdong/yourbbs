@@ -565,9 +565,14 @@ span.right {
 }
 
 .topic-content img {
-    display: block;
     margin-top: 10px;
     max-width: 650px;
+}
+
+.emoji {
+	width: 28px;
+	height: 28px;
+	vertical-align: middle;
 }
 
 .topic-content embed {
