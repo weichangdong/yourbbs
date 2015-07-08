@@ -55,7 +55,7 @@ echo '
 				var dispatch = function() {
 					q = document.getElementById("q");
 					if (q.value != "" && q.value != "站内搜索") {
-						window.open(\'https://www.90r.org/search?q=site:',$_SERVER['HTTP_HOST'],'%20\' + q.value, "_blank");
+						window.open(\'http://www.iglgoo.com/search?q=site:',$_SERVER['HTTP_HOST'],'%20\' + q.value, "_blank");
 						return false;
 					} else {
 						return false;
