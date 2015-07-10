@@ -46,7 +46,7 @@ if (@get_magic_quotes_gpc()) {
 
 // 获取当前用户
 $cur_user = null;
-$cur_uid = isset($_COOKIE['cur_uid']) ? $_COOKIE['cur_uid'] : '';
+$cur_uid = isset($_COOKIE['cur_uid']) ? intval($_COOKIE['cur_uid']) : '';
 $cur_uname = isset($_COOKIE['cur_uname']) ? $_COOKIE['cur_uname'] : '';
 $cur_ucode = isset($_COOKIE['cur_ucode']) ? $_COOKIE['cur_ucode'] : '';
 
