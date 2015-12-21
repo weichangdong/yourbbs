@@ -109,7 +109,7 @@ echo '
     <div class="footer">
 	<div class="sep10"></div>
 	<div class="sep10"></div>
-	<i class="fa fa-heart"></i> Lovingly made by <a href="http://www.eoen.org/" target="_blank">EOEN</a><div class="sep5"></div>
+	<i class="fa fa-heart"></i> Lovingly made by <a href="http://eoen.github.io/YouBBS-EOEN" target="_blank">EOEN</a><div class="sep5"></div>
 	<i class="fa fa-asterisk fa-spin"></i> Proudly Powered by <a href="http://youbbs.sinaapp.com/" target="_blank">YouBBS</a><div class="footericp">';
 if($options['icp']){
     echo '<div class="sep5"></div><i class="fa fa-university"></i> <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">',$options['icp'],'</a>';
