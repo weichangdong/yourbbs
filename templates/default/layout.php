@@ -25,17 +25,9 @@ echo '
 <script src="/static/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>';
 }
-if($cur_user){
-	echo'
-<script src="/static/js/jquery.particleground.dm.js" type="text/javascript"></script>
-<script src="/static/js/jquery.particleground.min.js" type="text/javascript"></script>';
-	}else{
-		echo'
+echo'
 <script src="/static/js/jquery.contip.js" type="text/javascript"></script>
-<script src="/static/js/jquery.particleground.dm.js" type="text/javascript"></script>
-<script src="/static/js/jquery.particleground.min.js" type="text/javascript"></script>
 <script src="/static/js/jquery.lazylinepainter-1.5.1.min.js" type="text/javascript"></script>';
-}
 if($options['head_meta']){
     echo $options['head_meta'];
 }
@@ -46,7 +38,6 @@ if(isset($canonical)){
 echo '
 </head>
 <body>
-<div id="particles"></div>
 <div class="header-wrap">
     <div class="header">
         <div class="logo"><a href="/" name="top">',htmlspecialchars($options['name']),'</a></div>
