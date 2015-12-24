@@ -16,7 +16,7 @@ if(isset($meta_des) && $meta_des){
 echo '<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link href="/static/default/style_ios.css" rel="stylesheet" type="text/css" />
-<link href="/static/default/awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />';
 if($cur_user){
 	echo'
@@ -40,7 +40,7 @@ echo '
 }
 echo '
 </head>
-<body oncontextmenu=self.event.returnValue=false>
+<body>
 <div class="header-wrap">
     <div class="header">
         <div class="logo"><a href="/" name="top">',htmlspecialchars($options['name']),'</a></div>
@@ -53,7 +53,8 @@ if($cur_user){
 		  <a href="/logout"><i class="fa fa-sign-out"></i>退出</a>';
 }else{
     echo '<a id="translateLink" rel="nofollow"><i class="fa fa-language"></i>繁體</a>
-	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>';
+	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>
+	<a href="/sigin" rel="nofollow"><i class="fa fa-user-plus"></i>注册</a>';
 }
 echo '       </div>
         <div class="c"></div>
@@ -105,7 +106,7 @@ echo '
     </div>';
 }
 
-if($cur_user && $cur_user['flag']>=99){
+if($cur_user && $cur_user['flag']>=99 && $url_path == 'index'){
 echo '
 <div class="title"><i class="fa fa-angle-double-right"></i> 管理员面板</div>
 <div class="main-box main-box-node">

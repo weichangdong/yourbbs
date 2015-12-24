@@ -16,7 +16,7 @@ if(isset($meta_des) && $meta_des){
 }
 echo '<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link href="/static/default/style.css" rel="stylesheet" type="text/css" />
-<link href="/static/default/awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <script src="',$options['jquery_lib'],'" type="text/javascript"></script>';
 if(isset($t_obj)){
@@ -67,7 +67,8 @@ if($cur_user){
 		  <a href="/logout"><i class="fa fa-sign-out"></i>退出</a>';
 }else{
     echo '<a id="translateLink" rel="nofollow"><i class="fa fa-language"></i>繁體</a>
-	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>';
+	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>
+	<a href="/sigin" rel="nofollow"><i class="fa fa-user-plus"></i>注册</a>';
 }
 echo '       </div>
         <div class="c"></div>
