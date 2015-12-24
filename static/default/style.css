@@ -711,14 +711,20 @@ span.right {
 }
 
 .pagination a {
-    display: block;
-    padding: 3px 5px 3px 5px;
-    border: 1px solid #BCBCBC;
-    margin: 0 4px 6px 0;
-    color: #444;
-    background-color: #FFFFFF;
-    white-space: nowrap;
-    border-radius: 3px;
+	display: block;
+	padding: 8px 10px 8px 10px;
+	border: 1px solid #e3e3e3;
+	margin: 8px 5px 8px 0px;
+	color: #555;
+	background-color: #FFFFFF;
+	white-space: nowrap;
+	border-radius: 2px;
+	font-size: 12px;
+	line-height: 1.5em;
+	text-shadow: 0px 1px 1px #fff;
+	text-decoration: none;
+	font-weight: bold;
+	-moz-box-shadow: 0px 1px 2px rgba(66, 66, 77, 0.3);
 }
 
 .pagination a:hover {
@@ -726,6 +732,33 @@ span.right {
     text-decoration: none;
     color: #000;
     background-color: #EFEFEF;
+}
+
+.pagediv {
+	float: left;
+	width: 492px;
+	text-align: center;
+	margin-top: 16px;
+}
+
+.pagediv a {
+	float: none;
+	display: inline;
+}
+
+a.pagecurrent {
+	background-color: #efefef;
+	color: #000;
+	text-shadow: none;
+	border: 1px solid #868686;
+}
+
+.pagination a:hover {
+	border: 1px solid #868686;
+	text-decoration: none;
+	color: #444;
+	background-color: #EFEFEF;
+	text-shadow: none;
 }
 
 .newpostbtn {
