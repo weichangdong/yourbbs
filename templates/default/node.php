@@ -51,19 +51,43 @@ echo '    <div class="c"></div>
 }
 
 if($c_obj['articles'] > $options['list_shownum']){ 
+
 echo '<div class="pagination">';
 if($page>1){
-echo '<a href="/nodes/',$cid,'/',$page-1,'" class="float-left">&laquo; 上一页</a>';
+echo '<a href="/nodes/',$cid,'/',$page-1,'" class="float-left"><i class="fa fa-angle-double-left"></i> 上一页</a>';
 }
+echo '<div class="pagediv">';
+$begin = $page-4;
+$begin = $begin >=1 ? $begin : 1;
+$end = $page+4;
+$end = $end <= $taltol_page ? $end : $taltol_page;
+
+if($begin > 1)
+{
+	echo '<a href="/nodes/',$cid,'/1" class="float-left">1</a>';
+	echo '<a class="float-left">...</a>';
+}
+for($i=$begin;$i<=$end;$i++){
+	
+	if($i != $page){
+		echo '<a href="/nodes/',$cid,'/',$i,'" class="float-left">',$i,'</a>';
+	}else{
+		echo '<a class="float-left pagecurrent">',$i,'</a>';
+	}
+}
+if($end < $taltol_page)
+{
+	echo '<a class="float-left">...</a>';
+	echo '<a href="/nodes/',$cid,'/',$taltol_page,'" class="float-left">',$taltol_page,'</a>';
+}
+
+echo '</div>';
 if($page<$taltol_page){
-echo '<a href="/nodes/',$cid,'/',$page+1,'" class="float-right">下一页 &raquo;</a>';
+echo '<a href="/nodes/',$cid,'/',$page+1,'" class="float-right">下一页 <i class="fa fa-angle-double-right"></i></a>';
 }
 echo '<div class="c"></div>
 </div>';
 }
-
-
 echo '</div>';
-
 
 ?>
