@@ -1,5 +1,5 @@
 ### YouBBS EOEN 开发版    
-######[eoen.github.io/YouBBS-EOEN](http://eoen.github.io/YouBBS-EOEN/)
+######[v2.2 Demo](http://youbbs.git.yangzhennan.com/)
 ##### 开发版说明：
 > 此版本是[EOEN](https://www.eoen.org)基于Youbbs二次开发的一个轻社区系统，当初就是看中Youbbs轻快、简洁的特点，后来抽了一点时间对Youbbs 1.04版本进行了修改转变成了现在的v2.0版本！<br/>
 > 为了便于和原作者[@ego008](https://github.com/ego008)所开发的Youbbs v1.04版本进行区分，所以我直接进行了跳跃性升级到了Youbbs v2.0版本。目前@ego008的[Youbbs vps v2.01](https://github.com/ego008/youbbs)版本也是fork此开发版而成。
