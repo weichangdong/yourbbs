@@ -42,33 +42,21 @@ echo '
     <div class="header">
         <div class="logo"><a href="/" name="top">',htmlspecialchars($options['name']),'</a></div>
 		<div class="scbox">
-			<script type="text/javascript">
-				var dispatch = function() {
-					q = document.getElementById("q");
-					if (q.value != "" && q.value != "站内搜索") {
-						window.open(\'https://www.nssjs.com/search?q=site:',$_SERVER['HTTP_HOST'],'%20\' + q.value, "_blank");
-						return false;
-					} else {
-						return false;
-					}
-				}
-			</script>
-			<form role="search" method="get" id="searchform" onsubmit="return dispatch()" target="_blank">
-				<input class="search-input" type="text" maxlength="30" this.value=\'\';" name="q" id="q"><i class="fa fa-search"></i>
+			<form action="/search/?p=" role="search" method="get" id="searchform" target="_blank">
+				<input class="search-input" type="text" maxlength="30" name="q" id="q"><i class="fa fa-search"></i>
 			</form>
 		</div>
         <div class="banner">';
         
 if($cur_user){ 
-    echo '<a href="/"><i class="fa fa-home"></i>首页</a>
-	      <a href="/favorites"><i class="fa fa-star"></i>收藏</a>
-		  <a href="/setting"><i class="fa fa-cog"></i>设置</a>
-		  <a id="translateLink"><i class="fa fa-language"></i>繁體</a>
-		  <a href="/logout"><i class="fa fa-sign-out"></i>退出</a>';
+    echo '<a href="/follow/nodes"><i class="fa fa-archive"></i>关注的节点</a>
+          <a href="/follow/user"><i class="fa fa-user"></i>关注的用户</a>
+		  <a href="/favorites"><i class="fa fa-star"></i>收藏的帖子</a>
+		  <a id="translateLink"><i class="fa fa-globe"></i>繁體中文</a>';
 }else{
-    echo '<a id="translateLink" rel="nofollow"><i class="fa fa-language"></i>繁體</a>
-	<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>
-	<a href="/sigin" rel="nofollow"><i class="fa fa-user-plus"></i>注册</a>';
+    echo '<a href="/login" rel="nofollow"><i class="fa fa-sign-in"></i>登录</a>
+	<a href="/sigin" rel="nofollow"><i class="fa fa-user-plus"></i>注册</a>
+	<a id="translateLink" rel="nofollow"><i class="fa fa-globe"></i>繁體中文</a>';
 }
 echo '       </div>
         <div class="c"></div>

@@ -66,7 +66,12 @@ if($cur_uname && $cur_uid && $cur_ucode){
             unset($db_user);
         }
     }
-
+	// 取出未读私信数量
+    $db_msg = $DBS->fetch_one_array("SELECT count(1) as count FROM yunbbs_messages WHERE IsRead=0 and ToUID='".$cur_uid."'");
+    if($db_msg){
+        $msg_count = $db_msg['count'];
+        unset($db_msg);
+    }
 }
 
 include (CURRENT_DIR . '/model.php');

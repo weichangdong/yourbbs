@@ -55,7 +55,7 @@ echo '<div class="c"></div>
 
 
 }else{
-    echo '<p>&nbsp;&nbsp;&nbsp;暂无收藏主题</p>';
+    echo '<p>&nbsp;&nbsp;&nbsp;您还没有收藏过任何一个帖子</p>';
 }
 
 echo '</div>';

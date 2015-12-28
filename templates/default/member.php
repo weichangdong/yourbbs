@@ -25,8 +25,14 @@ if($openid_user['name']){
     echo '<p>腾讯微博： <a href="http://t.qq.com/',$openid_user['name'],'" target="_blank" rel="nofollow">http://t.qq.com/',$openid_user['name'],'</a></p>';
 }
 
-echo '</div>
-<div class="c"></div>
+echo '</div>';
+if($cur_user && $m_obj['id']!=$cur_user['id']){
+	echo'<div class="member-floow">
+			<a id="btnFollow" href="javascript:;" data-id="'.$m_obj['id'].'" class="fl">关注TA</a>
+			 <a href="/newmessage/'.$m_obj['id'].'#newmsg" class="msm">发私信</a>
+		</div>';
+}
+echo'<div class="c"></div>
 </div>';
 
 
@@ -74,6 +80,45 @@ echo '    <div class="c"></div>
 
 echo '</div>';
 }
-
+echo '
+<script type="text/javascript">
+$(document).ready(function(){
+    var target=$("#btnFollow");
+    $.ajax({
+        type: "GET",
+        url: "/follow/user?act=isfo&id="+target.attr("data-id"),
+        success: function(msg){
+            if(msg == 1){
+                target.text("已关注");
+            }
+       }
+    });
+    
+    target.click(function(){
+        if(target.text() == "关注TA"){
+            $.ajax({
+                type: "GET",
+                url: "/follow/user?act=add&id="+target.attr("data-id"),
+                success: function(msg){
+                    if(msg == 1){
+                        target.text("已关注");
+                    }
+               }
+            });
+        }else{
+            $.ajax({
+                type: "GET",
+                url: "/follow/user?act=del&id="+target.attr("data-id"),
+                success: function(msg){
+                    if(msg == 1){
+                        target.text("关注TA");
+                    }
+               }
+            });
+        }
+    });
+});
+</script>
+';
 
 ?>

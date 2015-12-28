@@ -7,6 +7,9 @@ echo '
         if($cur_user && $cur_user['flag']>=99){
             echo ' &nbsp;<i class="fa fa-pencil-square-o"></i> <a href="/admin-node-',$c_obj['id'],'#edit">编辑</a>';
         }
+		if($cur_user && $cur_user['flag']>=5){
+            echo ' <button id="btnFollow" data-id="'.$c_obj['id'].'" class="btnflow">关注此节点</button>';
+        }
 echo '    <div class="c"></div>
 </div>
 
@@ -89,5 +92,44 @@ echo '<div class="c"></div>
 </div>';
 }
 echo '</div>';
-
+echo '
+<script type="text/javascript">
+$(document).ready(function(){
+    var target=$("#btnFollow");
+    $.ajax({
+        type: "GET",
+        url: "/follow/nodes?act=isfo&id="+target.attr("data-id"),
+        success: function(msg){
+            if(msg == 1){
+                target.text("已关注此节点");
+            }
+       }
+    });
+    
+    target.click(function(){
+        if(target.text() == "关注此节点"){
+            $.ajax({
+                type: "GET",
+                url: "/follow/nodes?act=add&id="+target.attr("data-id"),
+                success: function(msg){
+                    if(msg == 1){
+                        target.text("已关注此节点");
+                    }
+               }
+            });
+        }else{
+            $.ajax({
+                type: "GET",
+                url: "/follow/nodes?act=del&id="+target.attr("data-id"),
+                success: function(msg){
+                    if(msg == 1){
+                        target.text("关注此节点");
+                    }
+               }
+            });
+        }
+    });
+});
+</script>
+';
 ?>

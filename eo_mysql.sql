@@ -1,17 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.9
+-- version 4.4.15
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: 2015-05-10 08:05:09
--- 服务器版本： 10.0.16-MariaDB
--- PHP Version: 5.6.7
+-- Host: 127.0.0.1
+-- Generation Time: 2015-12-28 11:52:52
+-- 服务器版本： 5.5.40
+-- PHP Version: 5.4.45
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `eoen`
@@ -23,8 +26,7 @@
 -- 表的结构 `yunbbs_articles`
 --
 
-DROP TABLE IF EXISTS `yunbbs_articles`;
-CREATE TABLE `yunbbs_articles`(
+CREATE TABLE IF NOT EXISTS `yunbbs_articles` (
   `id` mediumint(8) unsigned NOT NULL,
   `cid` smallint(6) unsigned NOT NULL DEFAULT '0',
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -50,8 +52,7 @@ CREATE TABLE `yunbbs_articles`(
 -- 表的结构 `yunbbs_categories`
 --
 
-DROP TABLE IF EXISTS `yunbbs_categories`;
-CREATE TABLE `yunbbs_categories` (
+CREATE TABLE IF NOT EXISTS `yunbbs_categories` (
   `id` smallint(6) unsigned NOT NULL,
   `name` char(50) NOT NULL,
   `articles` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -62,7 +63,9 @@ CREATE TABLE `yunbbs_categories` (
 -- 转存表中的数据 `yunbbs_categories`
 --
 
-INSERT INTO `yunbbs_categories` (`id`, `name`, `articles`, `about`) VALUES (1, '首页隐藏', 0, '这个节点下的主题不会在首页显示'), (2, '默认节点', 0, '发贴默认节点');
+INSERT INTO `yunbbs_categories` (`id`, `name`, `articles`, `about`) VALUES
+(1, '首页隐藏', 0, '这个节点下的主题不会在首页显示'),
+(2, '默认节点', 4, '发贴默认节点');
 
 -- --------------------------------------------------------
 
@@ -70,8 +73,7 @@ INSERT INTO `yunbbs_categories` (`id`, `name`, `articles`, `about`) VALUES (1, '
 -- 表的结构 `yunbbs_comments`
 --
 
-DROP TABLE IF EXISTS `yunbbs_comments`;
-CREATE TABLE `yunbbs_comments` (
+CREATE TABLE IF NOT EXISTS `yunbbs_comments` (
   `id` int(10) unsigned NOT NULL,
   `articleid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -85,8 +87,7 @@ CREATE TABLE `yunbbs_comments` (
 -- 表的结构 `yunbbs_favorites`
 --
 
-DROP TABLE IF EXISTS `yunbbs_favorites`;
-CREATE TABLE `yunbbs_favorites` (
+CREATE TABLE IF NOT EXISTS `yunbbs_favorites` (
   `id` mediumint(8) unsigned NOT NULL,
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `articles` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -96,21 +97,56 @@ CREATE TABLE `yunbbs_favorites` (
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `yunbbs_follow`
+--
+
+CREATE TABLE IF NOT EXISTS `yunbbs_follow` (
+  `ID` mediumint(8) unsigned NOT NULL,
+  `UserID` mediumint(8) unsigned NOT NULL,
+  `ObjID` mediumint(8) unsigned NOT NULL,
+  `Type` tinyint(3) unsigned NOT NULL,
+  `FollowTime` int(10) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='关注表';
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `yunbbs_links`
 --
 
-DROP TABLE IF EXISTS `yunbbs_links`;
-CREATE TABLE `yunbbs_links` (
+CREATE TABLE IF NOT EXISTS `yunbbs_links` (
   `id` smallint(6) unsigned NOT NULL,
   `name` varchar(100) NOT NULL DEFAULT '',
   `url` varchar(200) NOT NULL DEFAULT ''
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `yunbbs_links`
 --
 
-INSERT INTO `yunbbs_links` (`id`, `name`, `url`) VALUES (1, 'YouBBS', 'http://youbbs.sinaapp.com'), (2, 'EOEN', 'https://www.eoen.org/');
+INSERT INTO `yunbbs_links` (`id`, `name`, `url`) VALUES
+(1, 'YouBBS', 'http://youbbs.sinaapp.com'),
+(2, 'EOEN', 'https://www.eoen.org/');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `yunbbs_messages`
+--
+
+CREATE TABLE IF NOT EXISTS `yunbbs_messages` (
+  `ID` mediumint(8) unsigned NOT NULL,
+  `FromUID` mediumint(8) unsigned NOT NULL,
+  `ToUID` mediumint(8) unsigned NOT NULL,
+  `FromUName` varchar(20) NOT NULL,
+  `ToUName` varchar(20) NOT NULL,
+  `Title` varchar(255) NOT NULL,
+  `Content` mediumtext NOT NULL,
+  `IsRead` tinyint(4) NOT NULL DEFAULT '0',
+  `ReadTime` int(10) unsigned DEFAULT '0',
+  `AddTime` int(10) unsigned NOT NULL DEFAULT '0',
+  `ReferID` mediumint(8) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='私信表';
 
 -- --------------------------------------------------------
 
@@ -118,8 +154,7 @@ INSERT INTO `yunbbs_links` (`id`, `name`, `url`) VALUES (1, 'YouBBS', 'http://yo
 -- 表的结构 `yunbbs_qqweibo`
 --
 
-DROP TABLE IF EXISTS `yunbbs_qqweibo`;
-CREATE TABLE `yunbbs_qqweibo` (
+CREATE TABLE IF NOT EXISTS `yunbbs_qqweibo` (
   `id` mediumint(8) unsigned NOT NULL,
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `name` varchar(20) NOT NULL DEFAULT '',
@@ -132,8 +167,7 @@ CREATE TABLE `yunbbs_qqweibo` (
 -- 表的结构 `yunbbs_settings`
 --
 
-DROP TABLE IF EXISTS `yunbbs_settings`;
-CREATE TABLE `yunbbs_settings` (
+CREATE TABLE IF NOT EXISTS `yunbbs_settings` (
   `title` varchar(50) NOT NULL DEFAULT '',
   `value` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -142,11 +176,11 @@ CREATE TABLE `yunbbs_settings` (
 -- 转存表中的数据 `yunbbs_settings`
 --
 
-INSERT INTO `yunbbs_settings` (`title`, `value`) VALUES 
-('name', 'eoen'), 
-('site_des', 'Proudly Powered by YouBBS'), 
-('site_inf', ''), 
-('site_create', '0'),
+INSERT INTO `yunbbs_settings` (`title`, `value`) VALUES
+('name', 'eoen'),
+('site_des', 'Proudly Powered by YouBBS'),
+('site_inf', ''),
+('site_create', '1451263549'),
 ('icp', ''),
 ('admin_email', ''),
 ('home_shownum', '20'),
@@ -193,11 +227,23 @@ INSERT INTO `yunbbs_settings` (`title`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `yunbbs_tags`
+--
+
+CREATE TABLE IF NOT EXISTS `yunbbs_tags` (
+  `id` mediumint(8) unsigned NOT NULL,
+  `name` char(32) NOT NULL,
+  `articles` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `ids` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `yunbbs_users`
 --
 
-DROP TABLE IF EXISTS `yunbbs_users`;
-CREATE TABLE `yunbbs_users` (
+CREATE TABLE IF NOT EXISTS `yunbbs_users` (
   `id` mediumint(8) unsigned NOT NULL,
   `name` varchar(20) NOT NULL DEFAULT '',
   `flag` tinyint(2) NOT NULL DEFAULT '0',
@@ -221,23 +267,11 @@ CREATE TABLE `yunbbs_users` (
 -- 表的结构 `yunbbs_weibo`
 --
 
-DROP TABLE IF EXISTS `yunbbs_weibo`;
-CREATE TABLE `yunbbs_weibo` (
+CREATE TABLE IF NOT EXISTS `yunbbs_weibo` (
   `id` mediumint(8) unsigned NOT NULL,
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `name` varchar(20) NOT NULL DEFAULT '',
   `openid` char(12) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `yunbbs_tags`;
-CREATE TABLE `yunbbs_tags` (
-  `id` mediumint(8) unsigned NOT NULL auto_increment,
-  `name` char(32) NOT NULL,
-  `articles` mediumint(8) unsigned NOT NULL default '0',
-  `ids` text NOT NULL default '',
-  PRIMARY KEY  (`id`),
-  KEY `name` (`name`),
-  KEY `articles` (`articles`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -248,25 +282,40 @@ CREATE TABLE `yunbbs_tags` (
 -- Indexes for table `yunbbs_articles`
 --
 ALTER TABLE `yunbbs_articles`
-  ADD PRIMARY KEY (`id`), ADD KEY `cid` (`cid`), ADD KEY `edittime` (`edittime`), ADD KEY `uid` (`uid`), ADD KEY `top` (`top`), ADD KEY `fop` (`fop`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cid` (`cid`),
+  ADD KEY `edittime` (`edittime`),
+  ADD KEY `uid` (`uid`),
+  ADD KEY `top` (`top`),
+  ADD KEY `fop` (`fop`);
 
 --
 -- Indexes for table `yunbbs_categories`
 --
 ALTER TABLE `yunbbs_categories`
-  ADD PRIMARY KEY (`id`), ADD KEY `articles` (`articles`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `articles` (`articles`);
 
 --
 -- Indexes for table `yunbbs_comments`
 --
 ALTER TABLE `yunbbs_comments`
-  ADD PRIMARY KEY (`id`), ADD KEY `articleid` (`articleid`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `articleid` (`articleid`);
 
 --
 -- Indexes for table `yunbbs_favorites`
 --
 ALTER TABLE `yunbbs_favorites`
-  ADD PRIMARY KEY (`id`), ADD KEY `uid` (`uid`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid` (`uid`);
+
+--
+-- Indexes for table `yunbbs_follow`
+--
+ALTER TABLE `yunbbs_follow`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `UserID` (`UserID`,`ObjID`,`Type`);
 
 --
 -- Indexes for table `yunbbs_links`
@@ -275,10 +324,18 @@ ALTER TABLE `yunbbs_links`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `yunbbs_messages`
+--
+ALTER TABLE `yunbbs_messages`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `yunbbs_qqweibo`
 --
 ALTER TABLE `yunbbs_qqweibo`
-  ADD PRIMARY KEY (`id`), ADD KEY `uid` (`uid`), ADD KEY `openid` (`openid`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid` (`uid`),
+  ADD KEY `openid` (`openid`);
 
 --
 -- Indexes for table `yunbbs_settings`
@@ -287,16 +344,27 @@ ALTER TABLE `yunbbs_settings`
   ADD PRIMARY KEY (`title`);
 
 --
+-- Indexes for table `yunbbs_tags`
+--
+ALTER TABLE `yunbbs_tags`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `name` (`name`),
+  ADD KEY `articles` (`articles`);
+
+--
 -- Indexes for table `yunbbs_users`
 --
 ALTER TABLE `yunbbs_users`
-  ADD PRIMARY KEY (`id`), ADD KEY `name` (`name`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `name` (`name`);
 
 --
 -- Indexes for table `yunbbs_weibo`
 --
 ALTER TABLE `yunbbs_weibo`
-  ADD PRIMARY KEY (`id`), ADD KEY `uid` (`uid`), ADD KEY `openid` (`openid`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid` (`uid`),
+  ADD KEY `openid` (`openid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -311,7 +379,7 @@ ALTER TABLE `yunbbs_articles`
 -- AUTO_INCREMENT for table `yunbbs_categories`
 --
 ALTER TABLE `yunbbs_categories`
-  MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `yunbbs_comments`
 --
@@ -323,14 +391,29 @@ ALTER TABLE `yunbbs_comments`
 ALTER TABLE `yunbbs_favorites`
   MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `yunbbs_follow`
+--
+ALTER TABLE `yunbbs_follow`
+  MODIFY `ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `yunbbs_links`
 --
 ALTER TABLE `yunbbs_links`
   MODIFY `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `yunbbs_messages`
+--
+ALTER TABLE `yunbbs_messages`
+  MODIFY `ID` mediumint(8) unsigned NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `yunbbs_qqweibo`
 --
 ALTER TABLE `yunbbs_qqweibo`
+  MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `yunbbs_tags`
+--
+ALTER TABLE `yunbbs_tags`
   MODIFY `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `yunbbs_users`

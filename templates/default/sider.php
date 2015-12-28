@@ -46,7 +46,9 @@ echo '
 		<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			<tbody>
 				<tr>
-					<td width="73" valign="top"><img src="/avatar/large/',$cur_user['avatar'],'.png" class="avatar" border="0" align="default" style="max-width: 73px; max-height: 73px;border-radius: 8px;border: 1px solid #E2E2E2;"></td>
+					<td width="73" valign="top" class="mbsting">
+					<img src="/avatar/large/',$cur_user['avatar'],'.png" class="avatar" border="0" align="default" style="max-width: 73px; max-height: 73px;border-radius: 4px;border: 1px solid #EFEFEF;">
+					<div class="setsc"><a href="/setting"><i class="fa fa-cog"></i> 设置</a></div></td>
 					<td width="10" valign="top"></td>
 					<td width="auto" align="left"><span class="bigger"><a href="/user/',$cur_user['id'],'" style="color:#444;text-decoration: none;font-size: 23px;">',$cur_user['name'],'</a></span><br/><br/><a href="/newpost/',$post_in_cid,'" rel="nofollow"><i class="fa fa-pencil-square-o" style="font-size: 25px;color: #444;"><span style="font-size: 13px; font-weight: bold;">创作新主题</span></i></a></td>
 				</tr>
@@ -54,19 +56,18 @@ echo '
 		</table><div class="notic">';
 		if($cur_user['notic']){
         $notic_n = count(array_unique(explode(',', $cur_user['notic'])))-1;
-		echo'<a href="/notifications" class="rightnotic"><i class="fa fa-bell"></i> ',$notic_n,' 条未读提醒</a>';
+		echo'<a href="/notifications" class="rightnotic"><i class="fa fa-bell"></i> ',$notic_n,' 条站内通知</a>';
 		}else{
-		echo'<a href="/notifications" class="rightnotic"><i class="fa fa-bell"></i> 0 条未读提醒</a>';
+		echo'<a href="/notifications" class="rightnotic"><i class="fa fa-bell"></i> 0 条站内通知</a>';
 		}
-		if($cur_user['flag'] == 5){
-        echo'<a href="/user/',$cur_user['id'],'" class="leftnotic"><i class="fa fa-user"></i> 普通会员</a>';
-		}else{
-		if($cur_user['flag'] == 99){
-        echo'<a href="/user/',$cur_user['id'],'" class="leftnotic"><i class="fa fa-user-secret"></i> 管理员</a>';
-			}
+		if($msg_count > 0){
+			echo'<a href="/usermessage" class="leftnotic"><i class="fa fa-envelope"></i> '.$msg_count.' 条私信消息</a>';
+        }else{
+			echo'<a href="/usermessage" class="leftnotic"><i class="fa fa-envelope"></i> 0 条私信消息</a>';
 		}
 echo'</div>
 	</div>
+	<div class="exitmb"><a href="/logout">退出 <i class="fa fa-sign-out"></i></a></div>
     <div class="c"></div>
     </div>
 </div>';
