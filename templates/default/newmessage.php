@@ -15,11 +15,11 @@ echo '
 <div class="post-list">';
 	if($message['FromUID'] == $cur_uid){ // 如果是我发的
 		echo'<div class="item-avatar">
-			<a href="/member/',$cur_user['avatar'],'"><img src="/avatar/normal/',$cur_user['avatar'],'.png">    </a>
+			<a href="/user/',$message['FromUID'],'"><img src="/avatar/normal/',$cur_user['avatar'],'.png">    </a>
 		</div>';
 	}else{
 		echo'<div class="item-avatar">
-			<a href="/member/',$message['FromUID'],'"><img src="/avatar/normal/',$message['FromUID'],'.png">    </a>
+			<a href="/user/',$message['FromUID'],'"><img src="/avatar/normal/',$message['FromUID'],'.png">    </a>
 		</div>';
 	}
 echo'
@@ -106,7 +106,7 @@ echo '
 <p class="newp"><textarea id="id-content" name="content" class="mll tallll">',htmlspecialchars($p_content),'</textarea></p>
 ';
 
-echo'<p><div class="float-right" style="padding-right: 5px;"><input type="submit" value=" 发送 " name="submit" class="textbtn" /></div><div class="c"></div></p>';
+echo'<p><div class="float-right" style="padding-right: 5px;"><input type="submit" value=" 发送私信 " name="submit" class="textbtn" /></div><div class="c"></div></p>';
 
 echo '
 </form>

@@ -41,7 +41,7 @@ if($act && $tid > 0){
 }
 
 // 获取发送给我的未读私信的数量
-$table_msgCount = $DBS->fetch_one_array("SELECT count(1) as count FROM `yunbbs_messages` WHERE IsRead=0 and ToUID='".$cur_uid."'");
+$table_msgCount = $DBS->fetch_one_array("SELECT count(distinct ReferID) as count FROM `yunbbs_messages` where ToUID=$cur_uid or FromUID=$cur_uid");
 
 $total_msg = $table_msgCount['count'];
 
@@ -55,9 +55,10 @@ if($page<=0 || $total_page == 0){
     $page = $total_page;
 }
 
-$query_sql = "SELECT * FROM `yunbbs_messages` 
-                WHERE IsRead=0 and ToUID='".$cur_uid."'
-                order by id desc limit ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
+$query_sql = "SELECT *,count(1) as count FROM `yunbbs_messages`
+                where fromuid=$cur_uid or touid=$cur_uid
+                group by referid
+                order by IsRead,id desc limit ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
 
 $query = $DBS->query($query_sql);
 $messagedb=array();
@@ -75,7 +76,7 @@ unset($message);
 $DBS->free_result($query);
 
 // 页面变量
-$title = '未读私信';
+$title = '私信';
 $newest_nodes = get_newest_nodes();
 
 $pagefile = CURRENT_DIR . '/templates/default/'.$tpl.'usermessage.php';

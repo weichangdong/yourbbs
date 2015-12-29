@@ -3,7 +3,7 @@ if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');
 
 echo '
 <div class="title">
-    <i class="fa fa-angle-double-right"></i> 未读私信 （',$total_msg,'）
+    <i class="fa fa-angle-double-right"></i> 私信列表 （',$total_msg,'）
 </div>
 
 <div class="main-box home-box-list">';
@@ -22,17 +22,19 @@ echo '
 			<a href="/user/',$message['FromUID'],'"><img src="/avatar/normal/',$message['FromUID'],'.png">    </a>
 		</div>';
 	}
-	echo'<div class="item-content">
-			<h1><a href="/newmessage/'.$message['FromUID'].'#message">',$message['Content'],'</a></h1>';
-			if($message['FromUID'] == $cur_uid){ // 如果是我发的
-				echo'<span class="item-date"><i class="fa fa-clock-o"></i> ',$message['AddTime'],'&nbsp;&nbsp;<i class="fa fa-user"></i> 我发给<a href="/user/',$message['ToUID'],'">',$message['ToUName'],'</a>&nbsp;&nbsp;<i class="fa fa-trash"></i> <a href="/usermessage/?act=del&id=',$message['ID'],'">删除</a></span>';
+	echo'<div class="item-content">';
+			if($message['FromUID'] == $cur_uid){
+				echo'<h1><a href="/newmessage/'.$message['ToUID'].'#message">',$message['Content'],'</a></h1>';
 			}else{
-				echo '<span class="item-date"><i class="fa fa-clock-o"></i> ',$message['AddTime'],'&nbsp;&nbsp;<i class="fa fa-user"></i> 来自<a href="/user/',$message['FromUID'],'">',$message['FromUName'],'</a>&nbsp;&nbsp;<i class="fa fa-comments"></i> <a href="/newmessage/',$message['FromUID'],'#newmsg">回复</a></span>';
+				echo'<h1><a href="/newmessage/'.$message['FromUID'].'#message">',$message['Content'],'</a></h1>';
+			}
+			if($message['FromUID'] == $cur_uid){ // 如果是我发的
+				echo'<span class="item-date"><i class="fa fa-user"></i> 我发给<a href="/user/',$message['ToUID'],'">',$message['ToUName'],'</a>&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$message['AddTime'],'&nbsp;&nbsp;<i class="fa fa-trash"></i> <a href="/usermessage/?act=del&id=',$message['ID'],'">删除</a></span>';
+			}else{
+				echo '<span class="item-date"><i class="fa fa-user"></i> 来自<a href="/user/',$message['FromUID'],'">',$message['FromUName'],'</a>&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$message['AddTime'],'&nbsp;&nbsp;<i class="fa fa-comments"></i> <a href="/newmessage/',$message['FromUID'],'#newmsg">回复</a></span>';
 			}
 	echo'</div>';
-    echo'<div class="item-countto">
-		<a href="/newmessage/'.$message['FromUID'].'#message">',$message['Title'],'</a>
-	</div>
+    echo'<div class="item-countto">',$message['Title'],'</div>
 	<div class="c"></div>
 </div>';
 

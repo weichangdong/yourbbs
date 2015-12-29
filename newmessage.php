@@ -88,15 +88,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
     
-    if(($timestamp - $cur_user['lastposttime']) > $options['article_post_space']){
-        if($p_content && mb_strlen($p_content,'utf-8') > 0){
+    if($p_content && mb_strlen($p_content,'utf-8') > 0){
             //mb_strlen($p_title,'utf-8')<=$options['article_title_max_len'] && 
             if(mb_strlen($p_content,'utf-8')<=$options['article_content_max_len']){
                 $p_title = '';//htmlspecialchars($p_title);
                 $p_content = htmlspecialchars($p_content);
                 
-                $DBS->query("INSERT INTO yunbbs_messages (ID,FromUID,ToUID,FromUName,ToUName,title,content,addtime) VALUES (null,$cur_uid,$cid,'$cur_uname','".$c_obj['name']."', '$p_title', '$p_content', $timestamp)");
+                $factor = 10000000;
+                
+                $referid=0;
+                
+                if($cid > $cur_uid){
+                    $referid=$cur_uid*$factor+$cid;
+                }else{
+                    $referid=$cid*$factor+$cur_uid;
+                }
+                
+                $DBS->query("INSERT INTO yunbbs_messages (ID,FromUID,ToUID,FromUName,ToUName,title,content,addtime,ReferID) VALUES (null,$cur_uid,$cid,'$cur_uname','".$c_obj['name']."', '$p_title', '$p_content', $timestamp,$referid)");
                 $new_mid = $DBS->insert_id();
+                
                 
                 $DBS->unbuffered_query("UPDATE yunbbs_users SET lastposttime=$timestamp WHERE id='$cur_uid'");
          
@@ -126,9 +136,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
        }else{
             $tip = '内容 不能留空';
         }
-    }else{
-        $tip = '操作最小间隔时间是 '.$options['article_post_space'].'秒';
-    }
 }else{
     $p_title = '';
     $p_content = '';

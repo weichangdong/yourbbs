@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-28 11:52:52
+-- Generation Time: 2015-12-29 15:28:50
 -- 服务器版本： 5.5.40
 -- PHP Version: 5.4.45
 
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `yunbbs_messages` (
   `IsRead` tinyint(4) NOT NULL DEFAULT '0',
   `ReadTime` int(10) unsigned DEFAULT '0',
   `AddTime` int(10) unsigned NOT NULL DEFAULT '0',
-  `ReferID` mediumint(8) unsigned NOT NULL DEFAULT '0'
+  `ReferID` bigint(20) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='私信表';
 
 -- --------------------------------------------------------

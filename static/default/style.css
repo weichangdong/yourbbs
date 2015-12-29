@@ -866,7 +866,7 @@ a.pagecurrent {
 }
 
 .commont-content img {
-    display: block;
+    display: inline;
     margin-top: 10px;
     max-width: 590px;
 }
