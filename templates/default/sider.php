@@ -61,9 +61,9 @@ echo '
 		echo'<a href="/notifications" class="rightnotic"><i class="fa fa-bell"></i> 0 条站内通知</a>';
 		}
 		if($msg_count > 0){
-			echo'<a href="/usermessage/" class="leftnotic"><i class="fa fa-envelope"></i> '.$msg_count.' 条私信消息</a>';
+			echo'<a href="/usermessage/" class="leftnotic"><i class="fa fa-envelope"></i> '.$msg_count.' 条未读私信</a>';
         }else{
-			echo'<a href="/usermessage/" class="leftnotic"><i class="fa fa-envelope"></i> 0 条私信消息</a>';
+			echo'<a href="/usermessage/" class="leftnotic"><i class="fa fa-envelope"></i> 0 条未读私信</a>';
 		}
 echo'</div>
 	</div>
