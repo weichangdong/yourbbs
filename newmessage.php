@@ -160,7 +160,8 @@ if($page<=0 || $total_page == 0){
     $page = $total_page;
 }
 
-$query_sql = "SELECT * FROM `yunbbs_messages` 
+$query_sql = "SELECT m.*,u1.avatar FROM `yunbbs_messages` m
+                inner join yunbbs_users u1 on m.FromUID=u1.id
                 WHERE (FromUID=$cur_uid and ToUID=$cid) OR (FromUID = $cid and ToUID=$cur_uid)
                 order by id desc limit ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
 
