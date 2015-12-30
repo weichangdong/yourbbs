@@ -55,7 +55,8 @@ if($page<=0 || $total_page == 0){
     $page = $total_page;
 }
 
-$query_sql = "SELECT *,count(1) as count FROM `yunbbs_messages`
+$query_sql = "SELECT m.*,count(1) as count,u1.avatar FROM `yunbbs_messages` m
+                inner join yunbbs_users u1 on m.FromUID=u1.id
                 where fromuid=$cur_uid or touid=$cur_uid
                 group by referid
                 order by IsRead,id desc limit ".($page-1)*$options['list_shownum'].",".$options['list_shownum'];
