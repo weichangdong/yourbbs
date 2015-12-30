@@ -19,7 +19,7 @@ echo '
 		</div>';
 	}else{
 		echo'<div class="item-avatar">
-			<a href="/user/',$message['FromUID'],'"><img src="/avatar/normal/',$message['FromUID'],'.png">    </a>
+			<a href="/user/',$message['FromUID'],'"><img src="/avatar/normal/',$message['avatar'],'.png">    </a>
 		</div>';
 	}
 	echo'<div class="item-content">';
